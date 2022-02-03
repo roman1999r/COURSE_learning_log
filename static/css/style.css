@@ -1,0 +1,10 @@
+body{
+    background-color: #fefefe ;
+}
+a{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+.errorlist{
+    color: red;
+}

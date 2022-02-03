@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ news_item.title }} :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Категория: <a href="{{ news_item.get_absolute_url }}"> {{ news_item.category }}</a>
+                    </div>
+                    <div class="card-body">
+                            {% if news_item.photo %}
+                            <img src="{{ news_item.item.photo.url }}" alt="" width="200" height="200" class="float-lg-start mr-3">
+                             {% else %}
+<img src="https://i.pinimg.com/736x/a8/c1/08/a8c108aec53c136c69eb7230e9c80cef--nuevo-seat-auto.jpg" alt="" width="200" height="200" class="float-lg-start mr-3">
+                            {% endif %}
+
+                                <h5 class="card-title">{{ news_item.title }}</h5>
+                                <p class="card-text">{{ news_item.content|safe|linebreaks }}</p>
+
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ news_item.created_at|date:"Y-m-d H:i:s" }}
+                    </div>
+                </div>
+{% endblock %}
